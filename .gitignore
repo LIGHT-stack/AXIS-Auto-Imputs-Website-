@@ -34,3 +34,11 @@ test-results
 .turbo
 *.tsbuildinfo
 next-env.d.ts
+ 
+# Ignore raw inventory source files accidentally added inside source tree
+src/data/Cars Inventory/
+src/data/Cars Inventory/**
+
+# Ignore accidental Windows programdata logs committed into repo root
+%programdata%/
+%programdata%/**
