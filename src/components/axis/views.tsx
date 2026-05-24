@@ -1250,6 +1250,7 @@ export function AdminView() {
 
   const [authed, setAuthed] = useState(false);
   const [pw, setPw] = useState("");
+  const [authErr, setAuthErr] = useState<string | null>(null);
   
   const [confirmDel, setConfirmDel] = useState(null);
   const [activeTab, setActiveTab] = useState("listings");
@@ -1267,6 +1268,25 @@ export function AdminView() {
 
   const toggleStatus = toggleVehicleStatus;
 
+  const handleLogin = async () => {
+    try {
+      setAuthErr(null);
+      const res = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ secret: pw }),
+      });
+      if (!res.ok) {
+        const j = await res.json().catch(() => ({}));
+        setAuthErr(j?.error || 'Login failed');
+        return;
+      }
+      setAuthed(true);
+    } catch (err) {
+      setAuthErr('Login error');
+    }
+  };
+
   if (!authed) return (
     <div style={{paddingTop:68,minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center"}}>
       <div style={{background:"var(--card)",border:"1px solid var(--gold-bd)",borderRadius:8,padding:"40px 36px",width:"min(380px,90vw)",textAlign:"center"}}>
@@ -1279,9 +1299,9 @@ export function AdminView() {
           <input type="text" placeholder="Username" defaultValue="admin"
             style={{padding:"11px 14px",borderRadius:3,fontSize:14,width:"100%"}}/>
           <input type="password" placeholder="Password" value={pw} onChange={e=>setPw(e.target.value)}
-            onKeyDown={e=>e.key==="Enter"&&setAuthed(true)}
+            onKeyDown={e=>e.key==="Enter"&&handleLogin()}
             style={{padding:"11px 14px",borderRadius:3,fontSize:14,width:"100%"}}/>
-          <button className="btn btn-gold" style={{width:"100%",justifyContent:"center",padding:13}} onClick={()=>setAuthed(true)}>
+          <button className="btn btn-gold" style={{width:"100%",justifyContent:"center",padding:13}} onClick={()=>handleLogin()}>
             <LogIn size={14}/> Sign In
           </button>
           <button className="btn btn-ghost btn-sm" onClick={()=>go("home")} style={{justifyContent:"center"}}>
@@ -1310,6 +1330,8 @@ export function AdminView() {
           <div style={{display:"flex",gap:10}}>
             <button className="btn btn-ghost btn-sm" onClick={()=>go("home")}>← Live Site</button>
             <button className="btn btn-ghost btn-sm" onClick={()=>setAuthed(false)}><LogOut size={12}/> Logout</button>
+            <div style={{marginTop:16,fontSize:11,color:"var(--muted2)"}}>Protected: provide the `ADMIN_SECRET` to enable login.</div>
+            {authErr && <div style={{color:"#ff6b6b",fontSize:12,marginTop:8}}>{authErr}</div>}
           </div>
         </div>
       </div>

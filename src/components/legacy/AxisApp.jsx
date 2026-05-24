@@ -1814,6 +1814,25 @@ const ContactPage = () => (
 const AdminPage = ({setPage}) => {
   const [authed, setAuthed] = useState(false);
   const [pw, setPw] = useState("");
+  const [authErr, setAuthErr] = useState(null);
+  async function handleLogin() {
+    try {
+      setAuthErr(null);
+      const res = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ secret: pw }),
+      });
+      if (!res.ok) {
+        const j = await res.json().catch(()=>({}));
+        setAuthErr(j?.error || 'Login failed');
+        return;
+      }
+      setAuthed(true);
+    } catch (err) {
+      setAuthErr('Login error');
+    }
+  }
   const [vehicles, setVehicles] = useState(VEHICLES);
   const [confirmDel, setConfirmDel] = useState(null);
   const [activeTab, setActiveTab] = useState("listings");
@@ -1845,16 +1864,17 @@ const AdminPage = ({setPage}) => {
           <input type="text" placeholder="Username" defaultValue="admin"
             style={{padding:"11px 14px",borderRadius:3,fontSize:14,width:"100%"}}/>
           <input type="password" placeholder="Password" value={pw} onChange={e=>setPw(e.target.value)}
-            onKeyDown={e=>e.key==="Enter"&&setAuthed(true)}
+            onKeyDown={e=>e.key==="Enter"&&handleLogin()}
             style={{padding:"11px 14px",borderRadius:3,fontSize:14,width:"100%"}}/>
-          <button className="btn btn-gold" style={{width:"100%",justifyContent:"center",padding:13}} onClick={()=>setAuthed(true)}>
+          <button className="btn btn-gold" style={{width:"100%",justifyContent:"center",padding:13}} onClick={()=>handleLogin()}>
             <LogIn size={14}/> Sign In
           </button>
           <button className="btn btn-ghost btn-sm" onClick={()=>setPage("home")} style={{justifyContent:"center"}}>
             ← Back to Site
           </button>
         </div>
-        <div style={{marginTop:16,fontSize:11,color:"var(--muted2)"}}>Demo: any credentials work</div>
+        <div style={{marginTop:16,fontSize:11,color:"var(--muted2)"}}>Protected: provide the ADMIN_SECRET to enable login.</div>
+        {authErr && <div style={{color:'#ff6b6b',fontSize:12,marginTop:8}}>{authErr}</div>}
       </div>
     </div>
   );
