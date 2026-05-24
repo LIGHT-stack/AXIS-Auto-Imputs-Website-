@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+@import "../styles/axis.css";
+
+/* AXIS design tokens — extend Tailwind when migrating off legacy inline styles */
+@theme {
+  --color-axis-gold: #c9a84c;
+  --color-axis-gold-light: #e8c86a;
+  --color-axis-black: #070707;
+  --color-axis-surface: #0c0c0c;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+}

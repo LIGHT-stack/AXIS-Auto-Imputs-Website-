@@ -1,0 +1,25 @@
+{
+  "version": "1.0",
+  "cases": [
+    {
+      "id": "clearance-suv",
+      "input": "How much clearance for a $14,500 SUV?",
+      "must_mention": ["duty", "VAT", "estimate", "CEPS"]
+    },
+    {
+      "id": "shipping-time",
+      "input": "How long from Korea to Ghana?",
+      "must_mention": ["weeks", "Tema"]
+    },
+    {
+      "id": "auction-grade",
+      "input": "What is auction grade 4?",
+      "must_mention": ["condition", "Korea"]
+    },
+    {
+      "id": "whatsapp-handoff",
+      "input": "I want to reserve the BMW",
+      "must_mention": ["WhatsApp", "contact"]
+    }
+  ]
+}

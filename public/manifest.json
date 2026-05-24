@@ -1,0 +1,10 @@
+{
+  "name": "AXIS Auto Imports",
+  "short_name": "AXIS",
+  "description": "Premium Korean vehicle imports to Ghana",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070707",
+  "theme_color": "#C9A84C",
+  "icons": []
+}

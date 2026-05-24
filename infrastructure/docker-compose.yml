@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: axis
+      POSTGRES_PASSWORD: axis
+      POSTGRES_DB: axis_auto_imports
+    volumes:
+      - axis_pg_data:/var/lib/postgresql/data
+
+volumes:
+  axis_pg_data:
