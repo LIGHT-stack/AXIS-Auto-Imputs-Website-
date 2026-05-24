@@ -403,7 +403,7 @@ const sortVehicles = (vehicles, sort) => {
   return v.sort((a,b)=>b.year-a.year); // newest default
 };
 
-const WA_BASE = "https://wa.me/233244123456";
+const WA_BASE = "https://wa.me/233244265976";
 const waLink = (vehicle) =>
   `${WA_BASE}?text=${encodeURIComponent(`Hi AXIS Auto Imports! I'm interested in the ${vehicle.year} ${vehicle.brand} ${vehicle.model} (${fmt(vehicle.price)}). Please send more details.`)}`;
 
@@ -1061,9 +1061,11 @@ const Footer = ({setPage}) => (
         <div>
           <h5 style={{fontSize:11,letterSpacing:".15em",textTransform:"uppercase",color:"var(--gold)",marginBottom:16}}>Contact</h5>
           {[
-            {icon:Phone, text:"+233 (0) 244 123 456"},
+            {icon:Phone, text:"+233 (0) 24 426 5976"},
             {icon:Mail, text:"info@axisautoimports.com"},
-            {icon:MapPin, text:"Dzorwulu, Accra, Ghana"},
+            {icon:MapPin, text:"Accra, Greater Accra, Ghana"},
+            {icon:MapPin, text:"Kasoa, Central Region, Ghana"},
+            {icon:MapPin, text:"Kumasi, Ashanti Region, Ghana"},
             {icon:Clock, text:"Mon–Sat: 8am – 6pm GMT"},
           ].map(({icon:I,text},i)=>(
             <div key={i} style={{display:"flex",gap:10,alignItems:"flex-start",marginBottom:12}}>
@@ -1748,11 +1750,14 @@ const ContactPage = () => (
         <div>
           <h3 style={{fontSize:20,marginBottom:20}}>Reach Our Team</h3>
           {[
-            {icon:MessageCircle,label:"WhatsApp (Fastest)",val:"+233 244 123 456",link:WA_BASE,green:true},
+            {icon:MessageCircle,label:"WhatsApp (Fastest)",val:"+233 24 426 5976",link:WA_BASE,green:true},
             {icon:Phone,label:"Phone (Ghana)",val:"+233 (0) 30 279 1234"},
             {icon:Mail,label:"Email",val:"info@axisautoimports.com"},
-            {icon:MapPin,label:"Accra Office",val:"Dzorwulu Commercial Area, Accra, Ghana"},
+            {icon:MapPin,label:"Accra Office",val:"Accra, Greater Accra, Ghana"},
+            {icon:MapPin,label:"Kasoa Office",val:"Kasoa, Central Region, Ghana"},
+            {icon:MapPin,label:"Kumasi Office",val:"Kumasi, Ashanti Region, Ghana"},
             {icon:MapPin,label:"Korea Office",val:"Gangnam-gu, Seoul, South Korea"},
+            {icon:Globe,label:"Facebook",val:"AXIS Auto Imports",link:"https://www.facebook.com/AXISAutoImports"},
             {icon:Clock,label:"Hours",val:"Mon–Sat 8:00am–6:00pm GMT"},
           ].map(({icon:I,label,val,link,green},i)=>(
             <div key={i} style={{display:"flex",gap:14,padding:"14px 0",borderBottom:"1px solid var(--bd)"}}>

@@ -164,9 +164,9 @@ export function Hero() {
           <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"clamp(1.5rem,3vw,2.2rem)",color:"var(--gold)",marginBottom:36}}>{slide.price}</div>
 
           <div className="hero-cta-group" style={{display:"flex",gap:12,flexWrap:"wrap"}}>
-            <button className="btn btn-gold" onClick={()=>go("inventory")} style={{padding:"14px 32px"}}>
+            <Link href="/inventory" className="btn btn-gold" style={{padding:"14px 32px",display:"inline-flex",alignItems:"center",justifyContent:"center"}}>
               <Car size={15}/> Browse Inventory
-            </button>
+            </Link>
             <button className="btn btn-ghost" onClick={()=>go("tools")} style={{padding:"14px 28px"}}>
               <Calculator size={15}/> Cost Estimator
             </button>
@@ -247,9 +247,9 @@ export function FeaturedVehicles() {
         </div>
 
         <div style={{textAlign:"center",marginTop:40}}>
-          <button className="btn btn-ghost" onClick={()=>go("inventory")} style={{padding:"13px 36px"}}>
+          <Link href="/inventory" className="btn btn-ghost" style={{padding:"13px 36px",display:"inline-flex",alignItems:"center",gap:8}}>
             View All Inventory <ArrowRight size={14}/>
-          </button>
+          </Link>
         </div>
       </div>
     </section>
@@ -413,9 +413,9 @@ export function CTABanner() {
         Join 200+ satisfied customers who've imported premium vehicles from Korea with AXIS. Transparent pricing, expert guidance, zero surprises.
       </p>
       <div style={{display:"flex",gap:14,justifyContent:"center",flexWrap:"wrap"}}>
-        <button className="btn btn-gold" onClick={()=>go("inventory")} style={{padding:"14px 32px"}}>
+        <Link href="/inventory" className="btn btn-gold" style={{padding:"14px 32px",display:"inline-flex",alignItems:"center",justifyContent:"center"}}>
           <Car size={14}/> Browse Inventory
-        </button>
+        </Link>
         <a href={WA_BASE} target="_blank" rel="noreferrer" className="btn btn-wa"
           style={{padding:"14px 28px",textDecoration:"none",display:"inline-flex",alignItems:"center",gap:8,fontSize:12,fontWeight:600,letterSpacing:".1em",textTransform:"uppercase",borderRadius:3}}
         >
@@ -478,9 +478,11 @@ export function SiteFooter() {
         <div>
           <h5 style={{fontSize:11,letterSpacing:".15em",textTransform:"uppercase",color:"var(--gold)",marginBottom:16}}>Contact</h5>
           {[
-            {icon:Phone, text:"+233 (0) 244 123 456"},
+            {icon:Phone, text:"+233 (0) 24 426 5976"},
             {icon:Mail, text:"info@axisautoimports.com"},
-            {icon:MapPin, text:"Dzorwulu, Accra, Ghana"},
+            {icon:MapPin, text:"Accra, Greater Accra, Ghana"},
+            {icon:MapPin, text:"Kasoa, Central Region, Ghana"},
+            {icon:MapPin, text:"Kumasi, Ashanti Region, Ghana"},
             {icon:Clock, text:"Mon–Sat: 8am – 6pm GMT"},
           ].map(({icon:I,text},i)=>(
             <div key={i} style={{display:"flex",gap:10,alignItems:"flex-start",marginBottom:12}}>
@@ -491,6 +493,11 @@ export function SiteFooter() {
           <div style={{marginTop:16,padding:14,background:"var(--gold-bg)",border:"1px solid var(--gold-bd)",borderRadius:4}}>
             <div style={{fontSize:11,color:"var(--gold)",fontWeight:600,letterSpacing:".1em",textTransform:"uppercase",marginBottom:6}}>Korea Office</div>
             <div style={{fontSize:12,color:"var(--muted)"}}>Seoul, South Korea<br/>+82-2-1234-5678</div>
+          </div>
+          <div style={{marginTop:16}}>
+            <a href="https://www.facebook.com/AXISAutoImports" target="_blank" rel="noreferrer" style={{fontSize:13,color:"var(--muted)",textDecoration:"underline"}}>
+              Facebook: AXIS Auto Imports
+            </a>
           </div>
         </div>
       </div>
@@ -1176,11 +1183,13 @@ export function ContactView() { return (
         <div>
           <h3 style={{fontSize:20,marginBottom:20}}>Reach Our Team</h3>
           {[
-            {icon:MessageCircle,label:"WhatsApp (Fastest)",val:"+233 244 123 456",link:WA_BASE,green:true},
+            {icon:MessageCircle,label:"WhatsApp (Fastest)",val:"+233 24 426 5976",link:WA_BASE,green:true},
             {icon:Phone,label:"Phone (Ghana)",val:"+233 (0) 30 279 1234"},
             {icon:Mail,label:"Email",val:"info@axisautoimports.com"},
-            {icon:MapPin,label:"Accra Office",val:"Dzorwulu Commercial Area, Accra, Ghana"},
-            {icon:MapPin,label:"Korea Office",val:"Gangnam-gu, Seoul, South Korea"},
+            {icon:MapPin,label:"Accra Office",val:"Accra, Greater Accra, Ghana"},
+            {icon:MapPin,label:"Kasoa Office",val:"Kasoa, Central Region, Ghana"},
+            {icon:MapPin,label:"Kumasi Office",val:"Kumasi, Ashanti Region, Ghana"},
+            {icon:Globe,label:"Facebook",val:"AXIS Auto Imports",link:"https://www.facebook.com/AXISAutoImports"},
             {icon:Clock,label:"Hours",val:"Mon–Sat 8:00am–6:00pm GMT"},
           ].map(({icon:I,label,val,link,green},i)=>(
             <div key={i} style={{display:"flex",gap:14,padding:"14px 0",borderBottom:"1px solid var(--bd)"}}>

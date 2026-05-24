@@ -1,17 +1,27 @@
 export const heroSlides = [
   {
-    bg:"https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=1600&q=80",
-    tag:"New Arrival", title:"Precision\nEngineered.", sub:"2022 Kia Seltos Noblesse", price:"$19,900",
+    bg:"/inventory/2022-kia-seltos/1.jpeg",
+    tag:"New Arrival", title:"Ready for\nGhana Roads.", sub:"2022 Kia Seltos", price:"$12,200",
     color:"#C9A84C",
   },
   {
-    bg:"https://images.unsplash.com/photo-1555215695-3004980ad54e?w=1600&q=80",
-    tag:"Featured", title:"The Art\nof Driving.", sub:"2019 BMW 520d M Sport", price:"$29,900",
+    bg:"/inventory/2021-avante-cn7/1.jpeg",
+    tag:"Popular", title:"Modern\nStyle.", sub:"2021 Hyundai Avante CN7", price:"$8,700",
     color:"#E8C86A",
   },
   {
-    bg:"https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=1600&q=80",
-    tag:"Prestige", title:"Command\nEvery Road.", sub:"2017 Range Rover Evoque SE", price:"$24,500",
+    bg:"/inventory/2017-range-rover-evoque/1.jpeg",
+    tag:"Luxury", title:"Iconic\nComfort.", sub:"2017 Range Rover Evoque", price:"$9,600",
+    color:"#C9A84C",
+  },
+  {
+    bg:"/inventory/2017-accent/1.jpeg",
+    tag:"Economy", title:"Premium\nEveryday.", sub:"2017 Hyundai Accent", price:"$5,000",
+    color:"#E8C86A",
+  },
+  {
+    bg:"/inventory/2018-sportage-panorama/1.jpeg",
+    tag:"Featured", title:"Panoramic\nViews.", sub:"2018 Kia Sportage Panorama", price:"$8,800",
     color:"#C9A84C",
   },
 ];

@@ -2,7 +2,7 @@ import { fmt } from "@/lib/format";
 import type { Vehicle } from "@/types/vehicle";
 
 const number =
-  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "233244123456";
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "233244265976";
 
 export const WA_BASE = `https://wa.me/${number}`;
 

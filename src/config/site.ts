@@ -13,7 +13,8 @@ export const siteConfig = {
     "second hand cars Accra",
   ],
   links: {
-    whatsapp: `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "233244123456"}`,
+    whatsapp: `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "233244265976"}`,
+    facebook: process.env.NEXT_PUBLIC_FACEBOOK_URL ?? "https://www.facebook.com/AXISAutoImports",
     email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "info@axisautoimports.com",
   },
 } as const;
